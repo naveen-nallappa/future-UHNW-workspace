@@ -4,7 +4,7 @@
 
   /* ───────── narration, notes, sequence ───────── */
   const STEPS = [
-    { id: 's0', say: 'Every tool we use today is organised by the kind of object it holds. The person walks between them. This concept does something different. It organises the work by relationship, and by time. And it lets agents into the conversation, as participants, with visible authority. What follows is one Monday morning. One client event. And the four people and agents who touch it.', scene: 0, label: 'Thesis', audio: 'audio/s0.mp3', h: 760,
+    { id: 's0', say: 'Every tool we use today is organised by the kind of object it holds. The person walks between them. This concept does something different. It organises the work by relationship, and by time. And it lets agents into the conversation, as participants, with visible authority. What follows is one Monday morning. One client event. And the four people and agents who touch it.', scene: 0, label: 'Thesis', audio: 'audio/s0.mp3', h: 820,
       text: "Every tool we use today is organised by the kind of object it holds. The person walks between them. This concept organises the work by relationship and by time instead, and lets agents into the conversation as participants with visible authority. What follows is one Monday morning, one client event, and the four people and agents who touch it.",
       note: "The thesis. The client is a thread. The day is a plan for the advisor's attention. Nothing on screen is a dashboard: the workspace is organised by relationship and time, not by object type, and the agents are participants in the thread who act under visible authority." },
     { id: 's1', say: 'There is no home page. The agent proposes how Daniel should spend his attention, across existing clients, new clients, and the world, in time order. And he edits the plan by talking to it. Decisions come first, because two of them have external clocks. New business is the second thing he sees. And the Okonkwo call has no draft attached, on purpose. Some gestures are not automated.', scene: 1, label: "Daniel's day", audio: 'audio/s1.mp3', h: 1180,
@@ -59,7 +59,6 @@
     try { ok = (await sha256(v)) === GATE_HASH; } catch (err) { ok = false; }
     if (ok) unlock(); else { gateError.hidden = false; gateInput.select(); }
   });
-  try { if (sessionStorage.getItem('meridian-open') === '1') unlock(); } catch (e) {}
 
   /* ───────── player ───────── */
   let booted = false;
@@ -320,5 +319,8 @@
     box.style.top = ((r.bottom - host.top) / scale + 8) + 'px';
   }
   function hideLineage() { const b = document.getElementById('lineage'); if (b) b.hidden = true; }
+
+  // Auto-unlock a tab that already opened the demo — last, so every declaration above exists.
+  try { if (sessionStorage.getItem('meridian-open') === '1') unlock(); } catch (e) {}
 
 })();

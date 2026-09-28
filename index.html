@@ -12,54 +12,18 @@
 </head>
 <body>
 
-<!-- ───────── Gate / cover ───────── -->
+<!-- ───────── Gate ───────── -->
 <div id="gate">
-  <div class="cover">
-
-    <div class="cover-main">
-      <p class="gate-kicker">A concept for the future UHNW workspace · for discussion</p>
-      <h1>Meridian</h1>
-      <p class="gate-sub">The client is a thread. The day is a plan for your attention.</p>
-
-      <p class="cover-p">Today an advisor's work is spread across a CRM, a reporting platform, email, a calendar, slide decks, an order system and a compliance log, and the advisor is the integration layer between them. This concept organises the work by relationship and by time instead, with agents in the conversation as participants who act under visible authority. There are no dashboards to navigate.</p>
-
-      <p class="cover-p">What you'll see is one Monday morning in October 2028 and one client event — Eleanor Whitfield writes at 7:42 that the family needs $6.5M for a house closing — followed through the four people and agents who touch it. Eight scenes, about five minutes, narrated.</p>
-
-      <form id="gateForm" autocomplete="off">
-        <label>
-          <span>Passphrase</span>
-          <input id="gateInput" type="password" autofocus placeholder="From the note you were sent">
-        </label>
-        <button type="submit">Open the demo</button>
-        <p id="gateError" class="gate-error" hidden>That isn't it — check the note you were sent.</p>
-      </form>
-
-      <p class="gate-foot">Use → and ← to move between scenes, Space to play, and click anything the narration mentions. Best on a laptop with sound on. All names, firms and figures are fictional.</p>
-    </div>
-
-    <aside class="cover-side">
-      <div class="contrast">
-        <p class="contrast-label">Today · seven systems, one person between them</p>
-        <div class="systems">
-          <span>CRM</span><span>Reporting</span><span>Email</span><span>Calendar</span><span>Slides</span><span>Orders</span><span>Compliance</span>
-        </div>
-        <p class="contrast-label">Tomorrow · one thread per client</p>
-        <div class="thread-bar"><span>Eleanor</span><span>·</span><span>Maya</span><span>·</span><span>Daniel</span><span>·</span><span>agents</span><span>·</span><span>supervision</span><em>with the work attached</em></div>
-      </div>
-
-      <ol class="scenes" start="0">
-        <li><b>Thesis</b><span>the idea in four sentences, before any screen</span></li>
-        <li><b>Daniel's day</b><span>a plan for his attention, in time order</span></li>
-        <li><b>Asking the day</b><span>an answer is a layer, not a page</span></li>
-        <li><b>The book</b><span>households as threads, prospects beside them</span></li>
-        <li><b>The Whitfield thread</b><span>the relationship in order, gates inside it</span></li>
-        <li><b>A page for the pack</b><span>Daniel authors by saying what he wants</span></li>
-        <li><b>Maya's deck</b><span>the same surface, the analyst in the chair</span></li>
-        <li><b>Eleanor's phone</b><span>the client in the same thread, seeing her slice</span></li>
-      </ol>
-    </aside>
-
-  </div>
+  <form id="gateForm" class="gate-min" autocomplete="off">
+    <h1>Meridian</h1>
+    <label>
+      <span>Passphrase</span>
+      <input id="gateInput" type="password" autofocus placeholder="From the note you were sent">
+    </label>
+    <button type="submit">Open the demo</button>
+    <p id="gateError" class="gate-error" hidden>That isn't it — check the note you were sent.</p>
+    <p class="gate-foot">All names, firms and figures are fictional. Best on a laptop with sound on.</p>
+  </form>
 </div>
 
 <!-- ───────── Player ───────── -->
@@ -73,12 +37,37 @@
 
   <div id="viewport">
     <div id="stage">
-<!-- ═══════════ Scene 0 · The thesis ═══════════ -->
-<section class="scene" id="s0" style="min-height:760px;background:#f6f4ef;padding:150px 0 0;flex-direction:column;align-items:center">
-  <div style="width:820px;display:flex;flex-direction:column;gap:28px">
-    <p style="margin:0;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#8a857c">Scene 0 · The thesis</p>
-    <p style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:30px;line-height:1.4;letter-spacing:-.005em">Every tool we use today is organised by the kind of object it holds. The person walks between them. This concept organises the work by relationship and by time instead, and lets agents into the conversation as participants with visible authority.</p>
-    <p style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:30px;line-height:1.4;letter-spacing:-.005em;color:#5e5a52">What follows is one Monday morning, one client event, and the four people and agents who touch it.</p>
+<!-- ═══════════ Scene 0 · The thesis (cover) ═══════════ -->
+<section class="scene" id="s0" style="min-height:820px;background:#f6f4ef;padding:72px 0 0;flex-direction:column;align-items:center">
+  <div class="cover">
+    <div class="cover-main">
+      <p class="gate-kicker">A concept for the future UHNW workspace · for discussion</p>
+      <h1>Meridian</h1>
+      <p class="gate-sub">The client is a thread. The day is a plan for your attention.</p>
+      <p class="cover-p">Today an advisor's work is spread across a CRM, a reporting platform, email, a calendar, slide decks, an order system and a compliance log, and the advisor is the integration layer between them. This concept organises the work by relationship and by time instead, with agents in the conversation as participants who act under visible authority. There are no dashboards to navigate.</p>
+      <p class="cover-p">What you'll see is one Monday morning in October 2028 and one client event — Eleanor Whitfield writes at 7:42 that the family needs $6.5M for a house closing — followed through the four people and agents who touch it. Eight scenes, about five minutes, narrated.</p>
+      <p class="gate-foot">Use → and ← to move between scenes, Space to play, and click anything the narration mentions. All names, firms and figures are fictional.</p>
+    </div>
+    <aside class="cover-side">
+      <div class="contrast">
+        <p class="contrast-label">Today · seven systems, one person between them</p>
+        <div class="systems">
+          <span>CRM</span><span>Reporting</span><span>Email</span><span>Calendar</span><span>Slides</span><span>Orders</span><span>Compliance</span>
+        </div>
+        <p class="contrast-label">Tomorrow · one thread per client</p>
+        <div class="thread-bar"><span>Eleanor</span><span>·</span><span>Maya</span><span>·</span><span>Daniel</span><span>·</span><span>agents</span><span>·</span><span>supervision</span><em>with the work attached</em></div>
+      </div>
+      <ol class="scenes" start="0">
+        <li class="act" data-go="s0"><b>Thesis</b><span>the idea in four sentences, before any screen</span></li>
+        <li class="act" data-go="s1"><b>Daniel's day</b><span>a plan for his attention, in time order</span></li>
+        <li class="act" data-go="s2a"><b>Asking the day</b><span>an answer is a layer, not a page</span></li>
+        <li class="act" data-go="s3"><b>The book</b><span>households as threads, prospects beside them</span></li>
+        <li class="act" data-go="s4"><b>The Whitfield thread</b><span>the relationship in order, gates inside it</span></li>
+        <li class="act" data-go="s5"><b>A page for the pack</b><span>Daniel authors by saying what he wants</span></li>
+        <li class="act" data-go="s6"><b>Maya's deck</b><span>the same surface, the analyst in the chair</span></li>
+        <li class="act" data-go="s7"><b>Eleanor's phone</b><span>the client in the same thread, seeing her slice</span></li>
+      </ol>
+    </aside>
   </div>
 </section>
 
