@@ -218,8 +218,8 @@
   function askBook() {
     if (bookAsked) return; bookAsked = true;
     const bar = document.getElementById('bookBar');
-    bar.style.borderColor = '#1b1a17';
-    const q = document.getElementById('bookQ'); q.style.color = '#1b1a17'; q.textContent = '';
+    bar.style.borderColor = '#0b1220';
+    const q = document.getElementById('bookQ'); q.style.color = '#0b1220'; q.textContent = '';
     document.getElementById('bookEsc').hidden = false;
     document.getElementById('bookLists').hidden = true;
     document.getElementById('bookAnswer').hidden = false;
@@ -253,7 +253,7 @@
       document.getElementById('decision').hidden = true;
       const d = document.getElementById('decisionDone'); d.hidden = false;
       d.textContent = 'Released 8:31 · reply to Eleanor, sale, wire staged for Nov 3 · logged';
-      const w = document.getElementById('wireGate'); w.style.color = '#2e6b4f'; w.textContent = '✓ Daniel’s approval · 8:31';
+      const w = document.getElementById('wireGate'); w.style.color = '#0a8f5c'; w.textContent = '✓ Daniel’s approval · 8:31';
     },
     replyOnly() {
       document.getElementById('decision').hidden = true;
@@ -266,7 +266,7 @@
       const s = document.getElementById('phoneStream');
       document.getElementById('quickReplies').hidden = true;
       const m = document.createElement('div'); m.className = 'bub-me fade-in'; m.textContent = 'Why not sell it all?';
-      const t = document.createElement('span'); t.style.cssText = 'align-self:flex-end;font-size:12px;color:#8a857c;margin-top:-10px'; t.textContent = '9:52 AM';
+      const t = document.createElement('span'); t.style.cssText = 'align-self:flex-end;font-size:12px;color:#66708a;margin-top:-10px'; t.textContent = '9:52 AM';
       const n = document.createElement('div'); n.className = 'bub-note fade-in'; n.textContent = 'Team only · Reply drafted — the ≈ $1.5M tax line, in her words · in Maya’s queue';
       s.appendChild(m); s.appendChild(t); s.appendChild(n); s.scrollTop = s.scrollHeight;
     },
@@ -274,7 +274,7 @@
       const s = document.getElementById('phoneStream');
       document.getElementById('quickReplies').hidden = true;
       const m = document.createElement('div'); m.className = 'bub-me fade-in'; m.textContent = 'Sounds good, go ahead';
-      const t = document.createElement('span'); t.style.cssText = 'align-self:flex-end;font-size:12px;color:#8a857c;margin-top:-10px'; t.textContent = '9:52 AM';
+      const t = document.createElement('span'); t.style.cssText = 'align-self:flex-end;font-size:12px;color:#66708a;margin-top:-10px'; t.textContent = '9:52 AM';
       const n = document.createElement('div'); n.className = 'bub-note fade-in'; n.textContent = 'Team only · Client consent logged 9:52 · sale and line draw proceed under the open approval';
       s.appendChild(m); s.appendChild(t); s.appendChild(n); s.scrollTop = s.scrollHeight;
     }
@@ -310,7 +310,7 @@
   function showLineage(el) {
     const box = document.getElementById('lineage');
     const [title, body] = el.dataset.lin.split('|');
-    box.innerHTML = '<b>' + title + '</b><br>' + body + '<br><span style="color:#2e6b4f">✓ certified</span>';
+    box.innerHTML = '<b>' + title + '</b><br>' + body + '<br><span style="color:#0a8f5c">✓ certified</span>';
     box.hidden = false;
     const host = box.parentElement.getBoundingClientRect();
     const r = el.getBoundingClientRect();
