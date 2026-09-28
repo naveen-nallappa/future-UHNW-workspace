@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Meridian — the client is a thread</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ───────── Gate ───────── -->
+<div id="gate">
+  <form id="gateForm" autocomplete="off">
+    <p class="gate-kicker">A concept for the future UHNW workspace</p>
+    <h1>Meridian</h1>
+    <p class="gate-sub">The client is a thread. The day is a plan for your attention.</p>
+    <label>
+      <span>Passphrase</span>
+      <input id="gateInput" type="password" autofocus placeholder="Enter the passphrase you were given">
+    </label>
+    <button type="submit">Open the demo</button>
+    <p id="gateError" class="gate-error" hidden>That isn't it — check the note you were sent.</p>
+    <p class="gate-foot">All names, firms and figures in this concept are fictional. Best viewed on a laptop with sound on.</p>
+  </form>
+</div>
+
+<!-- ───────── Player ───────── -->
+<div id="app" hidden>
+
+  <div id="topbar">
+    <span class="brand">Meridian <span class="brand-sub">· one Monday morning, one client event</span></span>
+    <nav id="chapters" aria-label="Scenes"></nav>
+    <label class="toggle"><input type="checkbox" id="notesToggle"> Design notes</label>
+  </div>
+
+  <div id="viewport">
+    <div id="stage">
+<!-- ═══════════ Scene 0 · The thesis ═══════════ -->
+<section class="scene" id="s0" style="min-height:760px;background:#f6f4ef;padding:120px 0 0;flex-direction:column;align-items:center">
+  <div style="width:820px;display:flex;flex-direction:column;gap:56px">
+    <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:44px;line-height:1.15;letter-spacing:-.01em">The client is a thread.<br>The day is a plan for your attention.</h1>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;gap:10px">
+        <span class="tbox">CRM</span><span class="tbox">Reporting</span><span class="tbox">Email</span><span class="tbox">Calendar</span><span class="tbox">Slides</span><span class="tbox">OMS</span><span class="tbox">Compliance</span>
+      </div>
+      <p style="margin:0;font-size:15px;color:#5e5a52">Today the advisor is the integration layer.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex"><span class="tbox tbox-dark">A thread</span></div>
+      <p style="margin:0;font-size:15px;color:#5e5a52">Tomorrow the relationship is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 1 · Daniel's day (artboard A) ═══════════ -->
+<section class="scene" id="s1" style="min-height:1180px;background:#f6f4ef;padding:56px 0 0;flex-direction:column;align-items:center">
+  <div style="width:820px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:40px;line-height:1.1;letter-spacing:-.01em">Monday. Here's how I'd spend it, Daniel.</h1>
+      <p style="margin:0;font-size:16px;line-height:1.5;color:#5e5a52">Three decisions with deadlines first, ten minutes on what moved overnight, thirty on new business while you're fresh, then the Whitfield pack before your sync, a call that matters more than anything drafted, and the Halvorsen intro at three. I've held the afternoon block. Change any of it below.</p>
+    </div>
+    <label class="act" data-go="s2a" style="display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid #cfcac0;border-radius:10px;background:#fffefb">
+      <span style="font-size:15px;color:#8a857c">⌘K</span>
+      <span style="flex-grow:1;font-size:16px;color:#8a857c">“Move the Okonkwo call to tomorrow” · “What would Eleanor ask about today's tape?”</span>
+    </label>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #dcd7cc">
+      <section class="slot"><div class="slot-t"><span>8:00</span><span>25 min</span></div>
+        <div class="slot-b">
+          <p class="lead">Three decisions, two with external clocks.</p>
+          <div class="drow" id="d-whitfield"><span style="flex-grow:1"><a class="act" data-go="s4" style="text-decoration:none;font-weight:600">Whitfield</a> — release Maya's reply to Eleanor with the $6.5M Aspen funding behind it.</span><button type="button" class="btn-p act" data-go="s4">Release</button></div>
+          <div class="drow"><span style="flex-grow:1"><a class="act" data-go="s6" style="text-decoration:none;font-weight:600">Whitfield Q3</a> — the Hillcrest mark is preliminary: footnote it, or hold slide 4.</span><button type="button" class="btn-p act" data-toast="Footnoted — slide 4 updated, supervision advisory cleared, logged" data-done="1">Footnote</button></div>
+          <div class="drow"><span style="flex-grow:1"><span style="font-weight:600">Ashworth</span> — six trades back inside the band; harvesting two losses brings the $38K tax cost to zero.</span><button type="button" class="btn-p act" data-toast="Approved — released under IPS §5, logged" data-done="1">Approve</button></div>
+        </div></section>
+      <section class="slot"><div class="slot-t"><span>8:25</span><span>10 min</span></div>
+        <div class="slot-b">
+          <p class="lead">Two things in the world touched your book overnight.</p>
+          <div class="drow"><span style="flex-grow:1"><a class="act" data-go="s4" style="text-decoration:none;font-weight:600">Whitfield</a> — tech is −2.1% pre-open and Eleanor calls on red mornings. She's −0.4%, because the ladder did its job.</span><button type="button" class="btn-s act" data-go="s2a">Line for the call</button></div>
+          <div class="drow"><span style="flex-grow:1"><span style="font-weight:600">Chen</span> — the secondary priced at the top of the range; ~$40M to the family. A congratulations note and a QSBS agenda are drafted.</span><button type="button" class="btn-p act" data-toast="Sent — congratulations note to the Chens, QSBS agenda attached, logged" data-done="1">Send the note</button></div>
+          <div class="drow fade-in" id="dayExtra" hidden><span style="flex-grow:1"><span style="font-weight:600">Eleanor's three questions</span> — lines ready.</span><span style="font-size:13px;color:#2e6b4f;flex-shrink:0">✓ added 8:12</span></div>
+          <div class="drow fade-in" id="dayWorld" hidden><span style="flex-grow:1"><span style="font-weight:600">The world before your calls</span> — tape, rates, the Chen secondary; three lines ready.</span><span style="font-size:13px;color:#2e6b4f;flex-shrink:0">✓ added 8:14</span></div>
+        </div></section>
+      <section class="slot"><div class="slot-t"><span>8:35</span><span>30 min · the week</span></div>
+        <div class="slot-b" style="gap:8px">
+          <p class="lead">Where new business goes this week.</p>
+          <p class="body2">Kestrel is one introduction away, through Eleanor, and she's most generous right after we've delivered — ask after the Aspen closing on Nov 3. Two founders on the watchlist have no advisor of record. I'd hold Wednesday 9–11 for prospecting; say the word and it's on the calendar. Halvorsen is at 3:00 today.</p>
+        </div></section>
+      <section class="slot"><div class="slot-t"><span>9:00</span><span>45 min</span></div>
+        <div class="slot-b" style="gap:8px">
+          <p class="lead">Read Maya's Whitfield pack before the 10:30 sync.</p>
+          <p class="body2">Fourteen slides; she moved alts pacing up to slide 2 and footnoted the Hillcrest mark. Those two are marked — the other twelve are unchanged from Q2's structure. <a class="act" data-go="s6" style="text-decoration:none">Open the pack →</a></p>
+        </div></section>
+      <section class="slot"><div class="slot-t"><span>10:30</span><span>with Maya</span></div>
+        <div class="slot-b" style="gap:8px">
+          <p class="lead">Whitfield prep sync.</p>
+          <p class="body2">Thursday's agenda is pacing, the gifting decision and Q3. Marcus has asked twice about his share of the LP and there is no plan; if you want to raise it Thursday, this is the time to decide.</p>
+        </div></section>
+      <section class="slot"><div class="slot-t"><span>11:15</span><span>20 min · call</span><span class="cb" id="cb1115" hidden>call brief</span></div>
+        <div class="slot-b" style="gap:8px">
+          <p class="lead">Ring the Okonkwos.</p>
+          <p class="body2">Their first grandchild arrived Saturday and Adaeze called the desk to tell us herself. It has been three weeks since you spoke. Nothing was drafted; this one is yours.</p>
+        </div></section>
+      <section class="slot"><div class="slot-t"><span>1:30–3:00</span><span>held</span></div>
+        <div class="slot-b" style="gap:8px">
+          <p class="lead">Relationship time. I'd use it on Beaumont.</p>
+          <p class="body2">Thirty-two days since anyone spoke to them, and their $22M property loan is priced 90 bps above what we'd do. A comparison is drafted. If today is full, I'll propose Thursday morning.</p>
+        </div></section>
+      <section class="slot"><div class="slot-t"><span>3:00</span><span>call · prospect</span><span class="cb" id="cb300" hidden>call brief</span></div>
+        <div class="slot-b" style="gap:8px">
+          <p class="lead">Halvorsen introduction — $210M, two custodians to consolidate.</p>
+          <p class="body2">He was quoted in the FT on custody costs last week; the brief opens with his own words. Pricing at 42 bps needs the desk-floor exception before you can commit on the call. <a href="#" onclick="return false" style="text-decoration:none">Open the brief →</a></p>
+        </div></section>
+    </div>
+    <p style="margin:0;font-size:14px;color:#8a857c">Your business: $1.57B · +$86M net flows YTD · pipeline $610M · 102% of plan — ask for more.</p>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 2 · Asking the day, beat 1 (artboard A′) ═══════════ -->
+<section class="scene" id="s2a" style="min-height:860px;background:#f6f4ef;padding:56px 0 0;flex-direction:column;align-items:center">
+  <div style="width:820px;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;align-items:baseline;gap:12px"><h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:28px;line-height:1.1">Monday</h1><span style="font-size:14px;color:#8a857c">your plan is below; this answer sits on top of it until you clear it</span></div>
+    <div class="askbar"><span style="font-size:15px;color:#8a857c">⌘K</span><span class="typed" id="q2a"></span><a class="act" data-go="s1" style="font-size:13px;text-decoration:none;color:#8a857c">Esc · clear</a></div>
+
+    <div id="ans2a" style="display:flex;flex-direction:column;gap:16px;padding:4px 0 8px">
+      <p class="ans-lead">Three things, in the order she usually asks them: whether she lost money, whether the Aspen plan still works, and whether Marcus's tech position is the problem.</p>
+      <p class="body2">She's −0.4% against a −2.1% headline because the muni ladder and the alternatives sleeve did their job. The Aspen split is unaffected: the $3.0M sale is against banked losses, not today's prices. Marcus's concentration is inside the family's personal accounts, not the trust, and it moved −1.9%. She has called on three of the last four red mornings, usually before 9:30.</p>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+        <div class="card">
+          <span class="lbl">Whitfield vs the tape · pre-open</span>
+          <div class="g3 lbl-row"><span></span><span>Today</span><span>Weight</span></div>
+          <div class="g3"><span>Global equities</span><span>−1.4%</span><span class="dim">41%</span></div>
+          <div class="g3"><span>Munis &amp; fixed income</span><span>+0.2%</span><span class="dim">26%</span></div>
+          <div class="g3"><span>Alternatives (marked monthly)</span><span>0.0%</span><span class="dim">28%</span></div>
+          <div class="g3" style="border-top:1px solid #dcd7cc;padding-top:6px;font-weight:600"><span>Household</span><span>−0.4%</span><span>$412.6M</span></div>
+        </div>
+        <div class="card">
+          <span class="lbl">A line for each question</span>
+          <p class="q">“You're down four-tenths on a two-percent day — the ladder did exactly what we built it for.”</p>
+          <p class="q">“Aspen doesn't change: we're selling against losses we already banked, so today's prices don't touch the plan.”</p>
+          <p class="q">“Marcus's position is in his own accounts and it's a conversation for Thursday, not today.”</p>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn-p act" data-action="addTo825">Add to 8:25</button>
+        <button type="button" class="btn-s act" data-toast="Pinned to the Whitfield thread · visible to you and Maya">Pin to the Whitfield thread</button>
+        <button type="button" class="chip">Draft a note to her instead</button>
+        <button type="button" class="chip act" data-action="rojas">Same for Ana Rojas</button>
+        <button type="button" class="chip">Show it as a chart</button>
+        <span style="margin-left:auto;font-size:12px;color:#8a857c">every figure carries lineage · logged</span>
+      </div>
+    </div>
+
+    <div id="ans2r" class="fade-in" hidden style="display:flex;flex-direction:column;gap:16px;padding:4px 0 8px">
+      <p class="ans-lead">Ana will ask one thing: whether the vesting notice changes what she should do about the stock.</p>
+      <p class="body2">Her employer is −3.4% pre-open with the rest of software, so today feels like the wrong day to hold it and the wrong day to sell it. The concentration memo in review answers exactly this morning: counting her held-away 401(k), her real exposure is 31%, not 24%, and the plan is a staged sale across the next three vesting dates regardless of where the stock opens. She last called on a red day in June, mid-morning.</p>
+      <div class="card" style="max-width:520px">
+        <span class="lbl">A line for the question</span>
+        <p class="q">“The notice doesn't change the plan — we sell in stages on the vesting dates, not on the days the stock is down.”</p>
+        <p class="q">“Once we count the 401(k) you're at 31%, which is why the memo moves faster than we first talked about.”</p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn-p act" data-toast="Added to 8:25 — Ana's line ready, logged">Add to 8:25</button>
+        <button type="button" class="btn-s act" data-toast="Pinned to the Rojas thread · visible to you and Maya">Pin to the Rojas thread</button>
+        <button type="button" class="chip act" data-action="backEleanor">Back to Eleanor</button>
+        <span style="margin-left:auto;font-size:12px;color:#8a857c">every figure carries lineage · logged</span>
+      </div>
+    </div>
+
+    <div class="below"><span class="lbl">Below</span><span style="flex-grow:1">Your day, as planned: 8:00 three decisions · 8:25 the world · 8:35 new business · 9:00 Whitfield pack · 10:30 sync · 11:15 Okonkwos · 1:30 held · 3:00 Halvorsen</span><a class="act" data-go="s1" style="text-decoration:none">show ▾</a></div>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 2 · beat 2 (artboard A″) ═══════════ -->
+<section class="scene" id="s2b" style="min-height:860px;background:#f6f4ef;padding:56px 0 0;flex-direction:column;align-items:center">
+  <div style="width:820px;display:flex;flex-direction:column;gap:24px">
+    <div style="display:flex;align-items:baseline;gap:12px"><h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:28px;line-height:1.1">Monday</h1><span style="font-size:14px;color:#8a857c">your plan is below; this answer sits on top of it until you clear it</span></div>
+    <div class="askbar"><span style="font-size:15px;color:#8a857c">⌘K</span><span class="typed" id="q2b"></span><a class="act" data-go="s1" style="font-size:13px;text-decoration:none;color:#8a857c">Esc · clear</a></div>
+    <div id="ans2b" style="display:flex;flex-direction:column;gap:16px;padding:4px 0 8px">
+      <p class="ans-lead">A red morning for tech, a quiet one for everything you own more of, and one story your clients will bring up before you do.</p>
+      <p class="body2" id="worldPara">Tech futures are −2.1% pre-open on a weak software print overnight; the broad index is −1.1%. Rates are the calmer story: December cut odds moved to 78% and munis cheapened on a heavy supply week, which is good for two of your ladders. The Chen secondary priced at the top of its range on Friday and is in this morning's papers, so expect it to come up beyond the Chens. Nothing else in the tape touches your book.</p>
+      <p class="body2 fade-in" id="worldParaShort" hidden>Whitfield is −0.4% on a −2.1% tech morning and Eleanor will call before 9:30. Rojas and the Chens are the households that feel the software print. Muni supply cheapened the 2031s, which helps the Ashworth ladder. The Chen secondary is in the papers; the note is drafted and nothing has been sent.</p>
+      <div style="display:grid;grid-template-columns:300px minmax(0,1fr);gap:12px">
+        <div class="card">
+          <span class="lbl">The tape · pre-open</span>
+          <div class="g3b lbl-row"><span></span><span>Today</span><span>Your book</span></div>
+          <div class="g3b"><span>Tech futures</span><span>−2.1%</span><span class="dim">Rojas · Chen</span></div>
+          <div class="g3b tape-all"><span>Broad index futures</span><span>−1.1%</span><span class="dim">all</span></div>
+          <div class="g3b"><span>10-year yield</span><span>−6 bps</span><span class="dim">ladders</span></div>
+          <div class="g3b"><span>Muni 2031s</span><span>+6 bps</span><span class="dim">Ashworth</span></div>
+          <div class="g3b"><span>Dec cut odds</span><span>78%</span><span class="dim">SBL · 4</span></div>
+          <div class="g3b tape-none"><span>Dollar, oil</span><span>flat</span><span class="dim">—</span></div>
+        </div>
+        <div class="card">
+          <span class="lbl">Three things to be able to talk about</span>
+          <div class="story"><span><strong>The software sell-off.</strong> One large vendor guided down on AI spending; the group followed. Ana Rojas and the Chens are the households that feel it; everyone else is inside their bands.</span><span class="cap">Likely from Eleanor before 9:30 and Ana today · a line for each is ready</span></div>
+          <div class="story"><span><strong>Rates and the December cut.</strong> Odds moved from 64% to 78% on Friday's inflation print. Carry on the credit lines gets cheaper; the gifting maths is rate-insensitive at the current hurdle.</span><span class="cap">Relevant to Eleanor's Aspen funding and the four line borrowers</span></div>
+          <div class="story"><span><strong>The Chen secondary.</strong> Priced at the top of the range; roughly $40M to the family. It's in the Journal this morning, so the Whitfields and the Okonkwos may ask what it means for their own companies.</span><span class="cap">Congratulations note and QSBS agenda drafted · nothing sent</span></div>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn-p act" data-action="addWorld">Add to 8:25</button>
+        <button type="button" class="btn-s act" data-action="standing">Brief me like this before every call today</button>
+        <button type="button" class="chip act" data-action="onlyClients">Only what touches my clients</button>
+        <button type="button" class="chip">What's the bull case on software?</button>
+        <button type="button" class="chip">Send Maya the muni note</button>
+        <span style="margin-left:auto;font-size:12px;color:#8a857c">public sources · client-shared where marked · logged</span>
+      </div>
+    </div>
+    <div class="below"><span class="lbl">Below</span><span style="flex-grow:1">Your day, as planned: 8:00 three decisions · 8:25 the world · 8:35 new business · 9:00 Whitfield pack · 10:30 sync · 11:15 Okonkwos · 1:30 held · 3:00 Halvorsen</span><a class="act" data-go="s1" style="text-decoration:none">show ▾</a></div>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 3 · The book (artboards B / B′) ═══════════ -->
+<section class="scene" id="s3" style="min-height:1180px;background:#f6f4ef;padding:56px 0 0;flex-direction:column;align-items:center">
+  <div style="width:960px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:40px;line-height:1.1;letter-spacing:-.01em">Your book.</h1>
+      <div style="display:flex;gap:32px;font-size:15px;line-height:1.4">
+        <span><strong style="font-weight:600">$1.57B</strong> <span class="dim">8 households</span></span>
+        <span><strong style="font-weight:600">+$86M</strong> <span class="dim">net flows YTD</span></span>
+        <span><strong style="font-weight:600">71%</strong> <span class="dim">avg share of wallet</span></span>
+        <span><strong style="font-weight:600">7 of 8</strong> <span class="dim">spoken to in 30 days</span></span>
+        <span style="margin-left:auto;color:#8a857c">reconciled 6:12 AM</span>
+      </div>
+    </div>
+
+    <div id="bookBar" class="act" data-action="askBook" style="display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid #cfcac0;border-radius:10px;background:#fffefb">
+      <span style="font-size:15px;color:#8a857c">⌘K</span>
+      <span id="bookQ" style="flex-grow:1;font-size:16px;color:#8a857c">Ask the book — “who is most exposed to software?” · “which families have a liquidity event this year?”</span>
+      <a id="bookEsc" class="act" data-action="clearBook" hidden style="font-size:13px;text-decoration:none;color:#8a857c">Esc · clear</a>
+    </div>
+
+    <div id="bookAnswer" class="fade-in" hidden style="display:flex;flex-direction:column;gap:16px;padding:4px 0 8px">
+      <p class="ans-lead">Rojas, by a distance — and the number is only visible because Ana shared her 401(k). Chen is next, though almost all of it is the founder equity we don't manage.</p>
+      <p class="body2">Managed accounts alone, nobody is above 12%. Counting held-away and founder positions, two households are above the 20% IPS threshold. Whitfield's exposure is Marcus's personal accounts and sits inside the band.</p>
+      <div class="card">
+        <div class="g5 lbl-row"><span>Household</span><span>Managed</span><span>All-in</span><span>vs 20% IPS</span><span style="text-align:left">Where it sits</span></div>
+        <div class="g5"><span style="font-weight:600">Rojas</span><span>24.3%</span><span style="font-weight:600">31%</span><span style="color:#b4874a">over</span><span class="dim" style="text-align:left">Employer RSUs, plus the held-away 401(k) in the same complex</span></div>
+        <div class="g5"><span style="font-weight:600">Chen</span><span>8.1%</span><span style="font-weight:600">27%</span><span style="color:#b4874a">over</span><span class="dim" style="text-align:left">~$60M founder equity outside AUS; secondary just priced</span></div>
+        <div class="g5"><span style="font-weight:600" class="act" data-go="s4">Whitfield</span><span>11.6%</span><span style="font-weight:600">12%</span><span style="color:#2e6b4f">inside</span><span class="dim" style="text-align:left">Marcus's personal accounts, one mega-cap name</span></div>
+        <div class="g5"><span style="font-weight:600">Beaumont</span><span>9.4%</span><span style="font-weight:600">9%</span><span style="color:#2e6b4f">inside</span><span class="dim" style="text-align:left">Index sleeve only</span></div>
+        <span style="font-size:12px;color:#8a857c;padding-top:4px">4 others below 8% · held-away from client-permissioned aggregation · founder equity from public filings</span>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn-p act" data-toast="Folded in — the memo now shows 31% all-in; Maya notified">Fold Ana's 401(k) into the concentration memo</button>
+        <button type="button" class="btn-s act" data-toast="Pinned to the Rojas thread">Pin to the Rojas thread</button>
+        <button type="button" class="chip">Same question for healthcare</button>
+        <button type="button" class="chip">What if software falls 20%?</button>
+        <button type="button" class="chip">Show it as a chart</button>
+        <span style="margin-left:auto;font-size:12px;color:#8a857c">every figure carries lineage · logged</span>
+      </div>
+      <div class="below" style="padding-bottom:0"><span class="lbl">Below</span><span style="flex-grow:1">Clients by attention: Whitfield · Ashworth · Rojas · Beaumont · Chen · Okonkwo · Foundation · +1  —  In pursuit: Halvorsen · Kestrel · watchlist</span><a class="act" data-action="clearBook" style="text-decoration:none">show ▾</a></div>
+    </div>
+
+    <div id="bookLists" style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="brow lbl-row" style="padding-bottom:8px;border-bottom:1px solid #dcd7cc"><span></span><span style="text-align:left">Clients · by attention</span><span>AUS</span><span>YTD net</span><span>Wallet</span><span>Last spoke</span></div>
+      <a class="brow act" data-go="s4"><span class="dot" style="background:#2b4c7e"></span><span class="bname"><span class="hh">Whitfield</span><span class="bline"><strong style="font-weight:600">Two things for you:</strong> Eleanor's Aspen funding is staged, and the Q3 review is waiting on the Hillcrest mark call.</span></span><span>$412.6M</span><span>+8.4%</span><span>74%</span><span class="dim">today</span></a>
+      <a class="brow"><span class="dot" style="background:#2b4c7e"></span><span class="bname"><span class="hh">Ashworth Trust</span><span class="bline">Drifted past the IPS band overnight; a rebalance is proposed and waiting on you. Quarterly letter follows Oct 20.</span></span><span>$147.2M</span><span>+7.1%</span><span>100%</span><span class="dim">9 days</span></a>
+      <a class="brow"><span class="dot" style="background:#b4874a"></span><span class="bname"><span class="hh">Rojas</span><span class="bline">Ana asked about the vesting notice. The concentration memo is in review; with her held-away 401(k) the real exposure is 31%, not 24%.</span></span><span>$94.8M</span><span>+6.2%</span><span>62%</span><span class="dim">Friday</span></a>
+      <a class="brow"><span class="dot" style="background:#b4874a"></span><span class="bname"><span class="hh">Beaumont</span><span class="bline">Quiet by preference, but it has been a month. Their property loan is 90 bps above what we could do; a comparison is drafted for when you call.</span></span><span>$310.9M</span><span>+8.9%</span><span>58%</span><span style="color:#b4874a">32 days</span></a>
+      <a class="brow"><span class="dot" style="background:#cfcac0"></span><span class="bname"><span class="hh">Chen</span><span class="bline dim">The secondary priced at the top of the range. A congratulations note and QSBS agenda are drafted for when you want them.</span></span><span>$186.4M</span><span>+9.0%</span><span>76%</span><span class="dim">6 days</span></a>
+      <a class="brow"><span class="dot" style="background:#cfcac0"></span><span class="bname"><span class="hh">Okonkwo</span><span class="bline dim">On plan. First grandchild arrived Saturday — Adaeze called to tell us herself. Nothing drafted; that one is a phone call.</span></span><span>$128.5M</span><span>+7.8%</span><span>81%</span><span class="dim">21 days</span></a>
+      <a class="brow"><span class="dot" style="background:#cfcac0"></span><span class="bname"><span class="hh">Meridian Foundation</span><span class="bline dim">On plan. Q4 grant docket drafting for the Dec 4 board meeting.</span></span><span>$75.3M</span><span>+5.9%</span><span>100%</span><span class="dim">12 days</span></a>
+      <p style="margin:0;font-size:13px;color:#8a857c">+ 1 more household, quiet</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="brow lbl-row" style="padding-bottom:8px;border-bottom:1px solid #dcd7cc"><span></span><span style="text-align:left">In pursuit · $610M</span><span>Potential</span><span>Odds</span><span>Path</span><span>Next</span></div>
+      <a class="brow"><span class="dot" style="background:#2b4c7e"></span><span class="bname"><span class="hh">Halvorsen</span><span class="bline">Intro call at 3:00. He was quoted in the FT on custody costs, which is exactly what the proposal answers; the brief opens with his words.</span></span><span>$210M</span><span>65%</span><span class="dim">referred</span><span class="dim">today</span></a>
+      <a class="brow"><span class="dot" style="background:#b4874a"></span><span class="bname"><span class="hh">Kestrel family office</span><span class="bline">In transition after the founder's death. Eleanor shares two boards with the principals; the warmest ask is after the Aspen closing on Nov 3.</span></span><span>$400M</span><span>—</span><span class="dim">Eleanor</span><span class="dim">after Nov 3</span></a>
+      <a class="brow"><span class="dot" style="background:#cfcac0"></span><span class="bname"><span class="hh">Watchlist · 3 founders</span><span class="bline dim">S-1, Form 4 and an 8-K sale in the last 90 days, all within two degrees of the team. Two have no advisor of record. Briefs stay current.</span></span><span>~$310M</span><span>—</span><span class="dim">2° away</span><span class="dim">Wed 9–11</span></a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 4 · The Whitfield thread (artboard C) ═══════════ -->
+<section class="scene" id="s4" style="min-height:980px;background:#f6f4ef;padding:40px 0 0;flex-direction:column;align-items:center">
+  <div style="width:1180px;height:900px;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:baseline;gap:16px;padding-bottom:16px;border-bottom:1px solid #dcd7cc">
+      <a class="act" data-go="s3" style="font-size:14px;text-decoration:none">← Book</a>
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:30px;line-height:1.1">Whitfield</h1>
+      <span style="font-size:13px;color:#8a857c">Eleanor · Marcus · Maya · Daniel · 4 agents · Supervision</span>
+      <span style="margin-left:auto;font-size:13px;color:#8a857c">since 2019</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;padding:16px 0;border-bottom:1px solid #dcd7cc">
+      <div class="fact"><span class="lbl">AUS</span><span class="fv">$412.6M</span><span class="fs">5 entities · 3 custodians</span></div>
+      <div class="fact"><span class="lbl">YTD net</span><span class="fv">+8.4%</span><span class="fs">+110 bps vs policy</span></div>
+      <div class="fact"><span class="lbl">Share of wallet</span><span class="fv">74%</span><span class="fs">of est. $558M</span></div>
+      <div class="fact"><span class="lbl">Liquidity</span><span class="fv">$18.6M</span><span class="fs">+ $25M line, undrawn</span></div>
+      <div class="fact"><span class="lbl">Client since</span><span class="fv">2019</span><span class="fs">last spoke today</span></div>
+      <div class="fact"><span class="lbl">Next</span><span class="fv">Thu 10:30</span><span class="fs">Q3 review, in office</span></div>
+    </div>
+    <div style="padding:12px 0;border-bottom:1px solid #dcd7cc;font-size:14px;line-height:1.5;color:#5e5a52;display:flex;gap:14px">
+      <span class="lbl" style="padding-top:3px;flex-shrink:0">Open</span>
+      <p style="margin:0">The Aspen closing on Nov 3, Thursday's Q3 review, and the gifting decision. The agent keeps this line current; ask it for anything deeper.</p>
+    </div>
+    <div style="display:flex;gap:32px;padding:22px 0 0;flex-grow:1;overflow:hidden">
+      <div style="display:flex;flex-direction:column;gap:22px;flex-grow:1;min-width:0">
+        <div class="msg"><span class="av" style="background:#1b1a17;color:#fff">EW</span>
+          <div class="msg-b"><div class="who"><span>Eleanor Whitfield</span><span>client · 7:42 AM</span></div>
+            <p style="margin:0;font-size:16px;line-height:1.5">Morning Maya — we signed last night. We'll need $6.5M at closing on Nov 3. Should we sell something, or is there a smarter way to do this?</p></div></div>
+        <div class="msg"><span class="av" style="border:1.5px solid #2b4c7e;color:#2b4c7e;font-size:12px">ag</span>
+          <div class="msg-b" style="gap:10px"><div class="who"><span>Comms agent</span><span>7:44 AM · internal</span></div>
+            <p style="margin:0;font-size:16px;line-height:1.5">Drafted a reply in Maya's voice and staged the funding behind it. Splitting the closing between a $3.0M sale against banked losses and a $3.5M line draw costs about $28K a month in carry and roughly nothing in tax; selling it all would cost ≈$1.5M in gains.</p>
+            <div style="display:flex;gap:12px">
+              <div class="card" style="flex-grow:1;gap:6px"><span class="lbl">Reply · draft v2</span><p style="margin:0;font-size:14px;line-height:1.5;color:#5e5a52">“Eleanor — congratulations, that was fast. You don't need to sell anything on a deadline. My recommendation is a split…”</p></div>
+              <div class="card" style="width:300px;gap:6px"><span class="lbl">$6.5M wire · staged, not sent</span><span style="font-size:14px;line-height:1.5;color:#2e6b4f">✓ Callback recorded Oct 2 &nbsp; ✓ ABA matches contract &nbsp; ✓ Fraud screen</span><span id="wireGate" style="font-size:14px;line-height:1.5;color:#b4874a">⧗ Daniel's approval</span></div>
+            </div></div></div>
+        <div class="msg"><span class="av" style="background:#dcd7cc;color:#1b1a17">DO</span>
+          <div id="decision" class="msg-b" style="gap:10px;padding:16px 18px;border:1px solid #2b4c7e;border-radius:10px;background:#fffefb">
+            <div class="who"><span>Daniel — your decision</span><span>reply: advisor approval · sale: IPS §5 · wire: SBL §4 + callback</span></div>
+            <p style="margin:0;font-size:16px;line-height:1.5">On release, Eleanor sees the reply and the funding summary. The trade and the wire stay internal.</p>
+            <div style="display:flex;gap:10px"><button type="button" class="btn-p act" data-action="releaseAll">Release all three</button><button type="button" class="btn-s act" data-action="replyOnly">Reply only, hold funding</button><button type="button" class="btn-s">Edit</button></div>
+          </div>
+          <div id="decisionDone" class="msg-b fade-in" hidden style="padding:12px 16px;border:1px solid #dcd7cc;border-radius:10px;background:#fffefb;font-size:14px;color:#5e5a52"></div>
+        </div>
+        <label style="display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid #cfcac0;border-radius:10px;background:#fffefb;margin-top:auto">
+          <span style="flex-grow:1;font-size:15px;color:#8a857c">Write to the thread — Eleanor, Maya, or the agents.</span><span style="font-size:13px;color:#8a857c">internal ▾</span></label>
+      </div>
+      <aside style="width:400px;flex-shrink:0;display:flex;flex-direction:column;gap:14px;padding:18px;border:1px solid #cfcac0;border-radius:12px;background:#fbf8f1;height:100%">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:Newsreader,Georgia,serif;font-size:20px">Desk</span><span style="font-size:12px;color:#b4874a">only you · logged, never released</span></div>
+        <div id="deskTabs" style="display:flex;flex-wrap:wrap;gap:4px">
+          <a class="dtab act" data-tab="Allocation">Allocation</a><a class="dtab act on" data-tab="Net worth">Net worth</a><a class="dtab act" data-tab="Performance">Performance</a><a class="dtab act" data-tab="Estate">Estate</a><a class="dtab act" data-tab="Liquidity">Liquidity</a><a class="dtab act" data-tab="Tax">Tax</a>
+        </div>
+        <label style="display:flex;align-items:center;padding:10px 14px;border:1px solid #cfcac0;border-radius:8px;background:#fffefb"><span style="flex-grow:1;font-size:14px;color:#8a857c">Refine it — “after the $3.0M sale, and include the art”</span></label>
+        <p style="margin:0;font-size:14px;line-height:1.5;color:#5e5a52">The sale barely moves the mix. On net worth, the art is what stands out: $35M with no plan and a coverage gap.</p>
+        <div id="deskAlloc" class="card" style="gap:8px">
+          <span class="lbl">Allocation vs target · after the $3.0M sale</span>
+          <div class="g4 lbl-row"><span></span><span>Now</span><span>After</span><span>Target</span></div>
+          <div class="g4"><span>Global equities</span><span>41.0%</span><span>40.3%</span><span class="dim">40%</span></div>
+          <div class="g4"><span>Fixed income &amp; munis</span><span>26.0%</span><span>26.4%</span><span class="dim">25%</span></div>
+          <div class="g4"><span>Alternatives</span><span>28.5%</span><span>28.9%</span><span class="dim">30%</span></div>
+          <div class="g4"><span>Cash</span><span>4.5%</span><span>4.4%</span><span class="dim">5%</span></div>
+        </div>
+        <div id="deskNW" class="card" style="gap:8px">
+          <span class="lbl">Net worth · est. $558M · beyond what we manage</span>
+          <div class="kv"><span>Managed, 5 entities</span><span>$412.6M</span></div>
+          <div class="kv"><span>Art collection (appraised 2026, uninsured gap)</span><span>$35.0M</span></div>
+          <div class="kv"><span>Aspen house, closing Nov 3</span><span>$6.5M</span></div>
+          <div class="kv"><span>Held-away 401(k)s, aggregated</span><span>$3.1M</span></div>
+          <div class="kv"><span>Estimated outside, unmapped</span><span class="dim">≈ $101M</span></div>
+          <div class="kv"><span>Outside credit</span><span class="dim">none detected</span></div>
+        </div>
+        <div id="deskOther" class="card fade-in" hidden style="gap:8px;min-height:120px;justify-content:center;align-items:center"><span id="deskOtherName" style="font-family:Newsreader,Georgia,serif;font-size:20px"></span><span class="dim" style="font-size:13px">as of Oct 9 · ask to refine</span></div>
+        <div style="display:flex;gap:10px;margin-top:auto"><button type="button" class="btn-s act" data-go="s5">Add to Thursday's pack</button><button type="button" class="btn-s act" data-toast="Shared with Maya — desk view, read-only">Share with Maya</button></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 5 · Daniel makes a page (artboard F) ═══════════ -->
+<section class="scene" id="s5" style="min-height:900px;background:#f6f4ef;padding:40px 48px;gap:40px">
+  <div style="width:420px;display:flex;flex-direction:column;flex-shrink:0">
+    <div style="display:flex;align-items:baseline;gap:12px;padding-bottom:14px;border-bottom:1px solid #dcd7cc">
+      <a class="act" data-go="s4" style="font-size:14px;text-decoration:none">← Whitfield</a>
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:24px;line-height:1.1">Thursday's pack</h1>
+      <span style="margin-left:auto;font-size:13px;color:#8a857c">Daniel · page 3</span>
+    </div>
+    <div class="thr">
+      <div class="tm"><span class="tw"><strong>Book agent</strong> · 8:22 · <span style="color:#b4874a">only you</span></span><p class="dim">The $3.0M sale barely moves the mix; the line draw leaves cash where it is. Sale against banked losses ≈ $0 tax; selling it all ≈ $1.5M.</p></div>
+      <div class="tm me"><span class="tw"><strong>Daniel</strong> · 8:24</span><p>Make this a page in Thursday's pack: the Aspen funding on one page — the split, what it costs, and that nothing gets sold under time pressure. Her language, not ours.</p></div>
+      <div class="tm"><span class="tw"><strong>Drafting agent</strong> · 8:24</span><p class="dim">Drafted as page 3, after pacing. It reuses the comparison from the staged reply so the numbers match what she'll already have read.</p></div>
+      <div class="tm me"><span class="tw"><strong>Daniel</strong> · 8:26</span><p>Lead with the sentence, chart under it, and drop the tax line — she doesn't need it on this page.</p></div>
+      <div class="tm"><span class="tw"><strong>Drafting agent</strong> · 8:26</span><p class="dim">Done, both marked on the page. Supervision reads it when the pack goes to release on Wednesday at 6.</p></div>
+      <div class="tm me"><span class="tw"><strong>Daniel</strong> · 8:27</span><p>Good. Also send her this page now, in the thread, so Thursday isn't the first time she sees it.</p></div>
+      <div class="tm"><span class="tw"><strong>Drafting agent</strong> · 8:27</span><p class="dim">Staged as a message to Eleanor with the page attached. It releases under the approval you already have open for the reply — nothing new to sign.</p></div>
+    </div>
+    <label style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid #cfcac0;border-radius:10px;background:#fffefb"><span style="flex-grow:1;font-size:15px;color:#8a857c">Shape the page…</span><span style="font-size:13px;color:#8a857c">draft · internal ▾</span></label>
+  </div>
+  <div style="flex-grow:1;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;align-items:baseline;gap:12px;font-size:13px;color:#8a857c"><span>Page 3 of 15 · Aspen funding</span><span style="margin-left:auto">draft · internal · from the desk, 8:22</span></div>
+    <div class="page">
+      <div style="display:flex;align-items:baseline;gap:16px"><h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:26px">Funding Aspen without selling under pressure</h2><span style="font-size:12px;color:#8a857c">Whitfield Family · closing Nov 3</span></div>
+      <p style="margin:0;font-size:15px;line-height:1.5"><span class="hl">You need $6.5M on Nov 3. We'd fund it in two parts — $3.0M from the portfolio where it costs nothing to sell, and $3.5M on your credit line — so nothing is sold because of a date.</span></p>
+      <svg viewBox="0 0 660 96" width="660" height="96" style="display:block" aria-label="The $6.5M split: $3.0M portfolio sale and $3.5M credit line">
+        <rect x="0" y="20" width="305" height="34" fill="#1b1a17"></rect><rect x="309" y="20" width="351" height="34" fill="#2b4c7e"></rect>
+        <text x="10" y="42" font-size="13" fill="#fff" font-family="IBM Plex Sans, sans-serif">Sell $3.0M · against losses already banked</text>
+        <text x="319" y="42" font-size="13" fill="#fff" font-family="IBM Plex Sans, sans-serif">Draw $3.5M on the line · repay at year-end</text>
+        <text x="0" y="80" font-size="12" fill="#5e5a52" font-family="IBM Plex Sans, sans-serif">Your allocation after: equities 40.3%, unchanged in substance. The line costs about $28K a month while it's drawn.</text>
+      </svg>
+      <div style="display:flex;flex-direction:column;gap:6px;font-size:13px">
+        <div class="g4p lbl-row" style="font-size:11px"><span></span><span>Draw it all</span><span>Sell it all</span><span>Split (ours)</span></div>
+        <div class="g4p"><span>Cost to you</span><span>≈ $28K/mo carry</span><span>≈ $1.5M tax</span><span style="font-weight:600">≈ $28K/mo, $0 tax</span></div>
+        <div class="g4p"><span>Portfolio afterwards</span><span>unchanged</span><span>tech −2.1 pts</span><span style="font-weight:600">essentially unchanged</span></div>
+        <div class="g4p" style="text-decoration:line-through;color:#b4874a"><span>Tax treatment of the sale</span><span>—</span><span>LT gains</span><span>harvested losses</span></div>
+      </div>
+      <p style="margin:auto 0 0;font-size:11px;line-height:1.5;color:#5e5a52">Illustrative; figures as of Oct 9, 2028. Every number on this page traces to the reconciled ledger.</p>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span class="thumb"></span><span class="thumb"></span><span class="thumb thumb-on"></span><span class="thumb" id="thumb4"></span><span class="thumb"></span>
+      <span id="packStatus" style="font-size:13px;color:#8a857c;margin-left:8px">+ 10 more · pack releases Wed 6 PM after supervision's read</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;padding-top:8px">
+      <button type="button" class="btn-p act" data-action="keepPage">Keep as page 3</button>
+      <button type="button" class="btn-s act" data-action="sendPage">Send this page to Eleanor now</button>
+      <button type="button" class="btn-s act" data-go="s6">Hand to Maya</button>
+      <span style="margin-left:auto;font-size:12px;color:#8a857c">every figure carries lineage · 3 edits logged</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 6 · Maya shapes the deck (artboard D) ═══════════ -->
+<section class="scene" id="s6" style="min-height:900px;background:#f6f4ef;padding:40px 48px;gap:40px">
+  <div style="width:420px;display:flex;flex-direction:column;flex-shrink:0">
+    <div style="display:flex;align-items:baseline;gap:12px;padding-bottom:14px;border-bottom:1px solid #dcd7cc">
+      <a class="act" data-go="s4" style="font-size:14px;text-decoration:none">← Whitfield</a>
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:24px;line-height:1.1">Q3 review</h1>
+      <span style="margin-left:auto;font-size:13px;color:#8a857c">due to Daniel 3 PM</span>
+    </div>
+    <div class="thr" style="gap:18px">
+      <div class="tm"><span class="tw"><strong>Drafting agent</strong> · 6:31 AM</span><p>Staged v3 from the Q2 template: 14 slides, every figure reconciled at 6:12. One advisory — the Hillcrest III mark on slide 4 is preliminary.</p></div>
+      <div class="tm me"><span class="tw"><strong>Maya</strong> · 9:12</span><p>Move alts pacing up to slide 2 — Eleanor will ask about it first.</p></div>
+      <div class="tm"><span class="tw"><strong>Drafting agent</strong> · 9:12</span><p class="dim">Done. Pacing is slide 2; the rest renumbered. Nothing else changed.</p></div>
+      <div class="tm me"><span class="tw"><strong>Maya</strong> · 9:20</span><p>On slide 4, footnote Hillcrest as preliminary and add the since-inception line to the chart.</p></div>
+      <div class="tm"><span class="tw"><strong>Drafting agent</strong> · 9:20</span><p class="dim">Both on the slide now — the two changes are marked. That footnote also clears the supervision advisory.</p></div>
+      <div class="tm me"><span class="tw"><strong>Maya</strong> · 9:21</span><p>Good. Send it to Daniel.</p></div>
+      <div class="tm"><span class="tw"><strong>Drafting agent</strong> · 9:21</span><p class="dim">Sent. It's in his queue with the mark decision attached; your three edits are the version history.</p></div>
+    </div>
+    <label style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid #cfcac0;border-radius:10px;background:#fffefb"><span style="flex-grow:1;font-size:15px;color:#8a857c">Shape the deck…</span></label>
+  </div>
+  <div style="flex-grow:1;display:flex;flex-direction:column;gap:16px;position:relative">
+    <div style="display:flex;align-items:baseline;gap:12px;font-size:13px;color:#8a857c"><span>Slide 4 of 14 · Performance</span><span style="margin-left:auto">v3 · sent to Daniel 9:21</span></div>
+    <div class="page" style="gap:18px">
+      <div style="display:flex;align-items:baseline;gap:16px"><h2 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:26px">Performance</h2><span style="font-size:12px;color:#8a857c">Whitfield Family · net of fees · as of Sep 30, 2028</span></div>
+      <p style="margin:0;font-size:15px;line-height:1.5">The portfolio returned <strong class="lineage-fig" data-lin="YTD net return|Custody feeds × 3, reconciled 6:12 AM · net of fees · certified by recon agent">+8.4%</strong> year to date, <span class="lineage-fig" data-lin="Excess vs policy|Policy benchmark from IPS §2 · 110 bps · reconciled 6:12 AM">110 bps</span> ahead of the policy benchmark, and <span class="hl lineage-fig" data-lin="Since inception|Inception Mar 2019 · time-weighted · 9.1% annualised · added 9:20 by Maya">9.1% annualised since inception in 2019</span>. Total assets stand at <span class="lineage-fig" data-lin="Total assets|5 entities, 3 custodians · $412.6M · reconciled 6:12 AM · certified">$412.6M</span>.</p>
+      <svg viewBox="0 0 660 150" width="660" height="150" style="display:block" aria-label="Growth of portfolio vs policy benchmark, trailing 12 months">
+        <line x1="0" y1="140" x2="660" y2="140" stroke="#dcd7cc" stroke-width="1"></line>
+        <polyline points="0,120 110,112 220,118 330,92 440,84 550,70 660,48" fill="none" stroke="#1b1a17" stroke-width="2"></polyline>
+        <polyline points="0,120 110,116 220,120 330,100 440,94 550,82 660,62" fill="none" stroke="#8a857c" stroke-width="1.5" stroke-dasharray="4 4"></polyline>
+        <polyline points="0,132 110,126 220,124 330,110 440,104 550,96 660,84" fill="none" stroke="#2b4c7e" stroke-width="1.5"></polyline>
+        <text x="0" y="12" font-size="11" fill="#8a857c" font-family="IBM Plex Sans, sans-serif">Portfolio ─  Policy ┄  Since inception ─ (added 9:20)</text>
+      </svg>
+      <p style="margin:0;font-size:11px;line-height:1.5;color:#5e5a52"><span class="hl">Hillcrest Partners III is carried at its preliminary Q3 mark pending the GP letter.</span> Source: three custody feeds, reconciled Oct 9.</p>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span class="thumb"></span><span class="thumb"></span><span class="thumb"></span><span class="thumb thumb-on"></span><span class="thumb"></span><span class="thumb"></span>
+      <span style="font-size:13px;color:#8a857c;margin-left:8px">+ 8 more · click any figure for its lineage</span>
+    </div>
+    <div id="lineage" hidden></div>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 7 · Eleanor's phone (artboard E) ═══════════ -->
+<section class="scene phone-scene" id="s7" style="min-height:930px">
+  <div class="phone" style="background:#fffefb;padding:64px 20px 20px;display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:column;gap:4px;padding-bottom:14px;border-bottom:1px solid #dcd7cc">
+      <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:26px;line-height:1.1">Maya &amp; Daniel</h1>
+      <span style="font-size:13px;color:#8a857c">Whitfield family · your team</span>
+    </div>
+    <div id="phoneStream" style="display:flex;flex-direction:column;gap:16px;flex-grow:1;overflow:hidden">
+      <div class="bub-me">Morning Maya — we signed last night. We'll need $6.5M at closing on Nov 3. Should we sell something, or is there a smarter way?</div>
+      <span style="align-self:flex-end;font-size:12px;color:#8a857c;margin-top:-10px">7:42 AM</span>
+      <div class="bub-them">
+        <span style="font-size:12px;color:#8a857c">Maya · 9:40 AM</span>
+        <p style="margin:0">Eleanor — congratulations, that was fast. You don't need to sell anything on a deadline. My recommendation is a split: fund part from the portfolio where it's tax-smart, and bridge the rest on your credit line.</p>
+        <div style="display:flex;flex-direction:column;gap:6px;padding:12px;border:1px solid #dcd7cc;border-radius:10px;background:#fffefb;font-size:14px">
+          <span class="lbl">$6.5M by Nov 3</span>
+          <span class="kv"><span>Sell $3.0M (tech)</span><span class="dim">≈ $0 tax</span></span>
+          <span class="kv"><span>Draw $3.5M on the line</span><span class="dim">≈ $28K/mo</span></span>
+          <span class="kv" style="color:#8a857c"><span>Sell everything instead</span><span>≈ $1.5M tax</span></span>
+        </div>
+        <p style="margin:0">Daniel and I will bring the exact numbers Thursday — nothing needs to happen before then. Congratulations again.</p>
+      </div>
+      <div id="meetCard" style="display:flex;flex-direction:column;gap:6px;padding:14px;border:1px solid #dcd7cc;border-radius:12px;font-size:14px;line-height:1.45">
+        <span class="lbl">Thursday 10:30 · in office</span>
+        <span style="font-family:Newsreader,Georgia,serif;font-size:18px">Q3 review with Daniel and Maya</span>
+        <span class="dim">Alts pacing, the Aspen funding, and the gifting decision. Your review pack arrives Wednesday evening.</span>
+      </div>
+      <div id="quickReplies" style="display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" class="chip act" data-action="phoneYes">Sounds good, go ahead</button>
+        <button type="button" class="chip act" data-action="phoneWhy">Why not sell it all?</button>
+      </div>
+    </div>
+    <label style="display:flex;align-items:center;gap:12px;padding:12px 16px;border:1px solid #cfcac0;border-radius:24px;background:#f6f4ef"><span style="flex-grow:1;font-size:15px;color:#8a857c">Message your team</span></label>
+  </div>
+</section>
+
+<!-- ═══════════ Scene 8 · Close ═══════════ -->
+<section class="scene" id="s8" style="min-height:860px;background:#f6f4ef;padding:80px 0 0;flex-direction:column;align-items:center">
+  <div style="width:860px;display:flex;flex-direction:column;gap:40px">
+    <h1 style="margin:0;font-family:Newsreader,Georgia,serif;font-weight:400;font-size:36px;line-height:1.15;letter-spacing:-.01em">Six rules that make it look unlike today's tools.</h1>
+    <ol class="rules">
+      <li>There is no navigation rail and no module list. The only ways to move are the command bar, a household's name, and the links inside a thread.</li>
+      <li>Every figure that is not a relationship fact lives inside a sentence. Relationship facts appear once, in a fixed strip, the same on every household.</li>
+      <li>An answer to a question is a layer, not a page. It goes somewhere — a thread, a time slot, a pack — or it is dismissed. It never creates a new place to go.</li>
+      <li>Anything the advisor makes for a client is a page in the next pack or a message in the thread. There are no standalone exhibits and no library of analyses.</li>
+      <li>Private analysis is on the record and never client-visible. Three audiences exist everywhere: the client, the team, and only me. Supervision can read all three.</li>
+      <li>Gates are part of the conversation. Approvals, callbacks, dual sign-off and supervision's pre-read are quiet lines inside the thread, never a separate compliance screen.</li>
+    </ol>
+    <div style="display:flex;flex-direction:column;gap:12px;padding-top:8px;border-top:1px solid #dcd7cc">
+      <span class="lbl" style="padding-top:12px">Horizons</span>
+      <p style="margin:0;font-size:16px;line-height:1.55;color:#5e5a52">Horizon 1 and Horizon 2 are the same screens with a different transcript. In 2028 Maya's messages outnumber the agents'; in 2032 the agents' outnumber hers and the human entries are approvals and challenges. What has to be built early is not the interface but the encoding: standing instructions, authority maps, tone profiles and review policy — years of firm knowledge made executable.</p>
+      <p style="margin:0;font-size:13px;color:#8a857c">All names, firms and figures in this concept are fictional.</p>
+    </div>
+  </div>
+</section>
+    </div>
+    <div id="toast" hidden></div>
+  </div>
+
+  <aside id="notes" hidden></aside>
+
+  <div id="bar">
+    <p id="caption"></p>
+    <div id="controls">
+      <span id="counter">1 of 9</span>
+      <button id="prev" title="Previous (←)">←</button>
+      <button id="next" title="Next (→)">→</button>
+      <button id="play" title="Play / pause (Space)">▶ Play</button>
+      <button id="mute" title="Voice on / off">🔊</button>
+    </div>
+  </div>
+
+</div>
+
+<audio id="voice" preload="auto"></audio>
+<script src="demo.js"></script>
+</body>
+</html>
